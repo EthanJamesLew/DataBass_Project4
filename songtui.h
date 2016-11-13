@@ -81,7 +81,7 @@ void SongTUI::execCommand(const char command[])
 	{
 	case ADD: add(); break;
 	case SARTIST: sartist(); break;
-	case SALBUM: std::cout << "salbum" << std::endl; break;
+	case SALBUM: salbum(); break;
 	case DELIDX: delidx(); break;
 	case LS: ls(); break;
 	default: std::cout << "Invalid command" << std::endl;
@@ -116,7 +116,7 @@ void SongTUI::add()
 
 	while (!quit)
 	{
-		std::cout << "\tEnter a duration(mm:ss): ";
+		std::cout << "\t\tEnter a duration(mm:ss): ";
 		std::cin.getline(com, 256);
 		if (strlen(com) < 4)
 		{
@@ -132,7 +132,7 @@ void SongTUI::add()
 		int seconds = 10 * (com[3] - '0') + (com[4] - '0');
 		if (seconds > 59)
 		{
-			std::cout << "\t\Invalid Seconds" << std::endl;
+			std::cout << "\t\tInvalid Seconds" << std::endl;
 			continue;
 		}
 
