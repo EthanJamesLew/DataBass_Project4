@@ -1,0 +1,19 @@
+    ____        __           ____
+   / __ \____ _/ /_____ _   / __ )____ ___________
+  / / / / __ `/ __/ __ `/  / __  / __ `/ ___/ ___/
+ / /_/ / /_/ / /_/ /_/ /  / /_/ / /_/ (__  |__  ) 
+/_____/\__,_/\__/\__,_/  /_____/\__,_/____/____/ 
+
+Created by Ethan Lew
+Project 4, CS 162
+
+No not add arguments, you will be prompted for them
+
+Commands
+	"add"               add song prompt
+	"sartist"  search by artist
+	"salbum"    search by album
+	"delidx"      delete by index
+	"ls"                list songs
+	"quit"              quit the program
+
