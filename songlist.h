@@ -21,6 +21,7 @@ public:
 	void print() const;
 	void remove(int idx);
 	void loadSongs(const char fileName[]);
+	void saveSong(const char fileName[]);
 	void addEntry(Song& song);
 
 private:
@@ -164,7 +165,6 @@ void SongList::loadSongs(const char fileName[])
 {
 	ifstream in;
 	Song tempSong;
-	int idx;
 	char otitle[128];
 	char oartist[128];
 	char ominutes[128];
@@ -203,6 +203,39 @@ void SongList::loadSongs(const char fileName[])
 
 	}
 	in.close();
+
+}
+
+void SongList::saveSong(const char fileName[])
+{
+	ofstream		out;
+	int				index;
+	char otitle[128];
+	char oartist[128];
+	char ominutes[128];
+	char oseconds[128];
+	char oalbum[128];
+
+	out.open(fileName);
+	if (!out)
+	{
+		out.clear();
+		cerr << endl << "Fail to open " << fileName << " for output!" << endl << endl;
+		exit(1);
+	}
+
+	for (index = 0; index<size; index++)
+	{
+		songs[index].get(TITLE, otitle);
+		songs[index].get(ARTIST, oartist);
+		songs[index].get(MINUTES, ominutes);
+		songs[index].get(SECONDS, oseconds);
+		songs[index].get(ALBUM, oalbum);
+
+		out << otitle << ';' << oartist << ';' << ominutes << ';' << oseconds << ';' << oalbum << endl;
+	}
+
+	out.close();
 
 }
 

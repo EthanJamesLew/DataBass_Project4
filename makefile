@@ -1,6 +1,6 @@
 ##Generic Makefile
 
-TARGET   = Project4
+TARGET   = app
 
 CC       = g++
 CFLAGS   = -std=c++11 -pedantic -Wall -I./include -I./src
@@ -9,9 +9,9 @@ LINKER   = g++ -o
 
 LFLAGS   = -Wall -I./include -I./src
 
-SRCDIR   = src
-INCDIR	 = include
-OBJDIR   = obj
+SRCDIR   = .
+INCDIR	 = .
+OBJDIR   = .
 BINDIR   = .
 
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
@@ -36,4 +36,4 @@ clean:
 .PHONEY: remove
 remove: clean
 	@$(rm) $(BINDIR)/$(TARGET)
-@echo "Executable removed!"pp
+	@echo "Executable removed!"pp

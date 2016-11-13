@@ -11,6 +11,6 @@ int main(int argc, char* argv[])
 		temp.print();
 	list.remove(0);
 	list.print();
-
+	list.saveSong("so.txt");
 	return 0;
 }
