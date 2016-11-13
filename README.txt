@@ -6,9 +6,9 @@ Instructor Li Liang
 
 Commands
 	"add"               add song prompt
-	"sartist"  search by artist
-	"salbum"    search by album
-	"delidx"      delete by index
+	"sartist"           search by artist
+	"salbum"            search by album
+	"delidx"            delete by index
 	"ls"                list songs
 	"quit"              quit the program
 
