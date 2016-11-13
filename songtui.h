@@ -7,6 +7,7 @@ class SongTUI
 {
 public:
 	SongTUI();
+	void save();
 	void renderMenu();
 	void mainloop();
 private:
@@ -33,6 +34,11 @@ SongTUI::SongTUI()
 {
 	
 	slist.loadSongs("songs.txt");
+}
+
+void SongTUI::save()
+{
+	slist.saveSong("songs.txt");
 }
 
 void SongTUI::renderMenu()
@@ -95,7 +101,67 @@ unsigned SongTUI::hash(const char command[])
 
 void SongTUI::add()
 {
+	Song song = Song();
+	char com[128];
 
+	std::cout << "\tEnter a title: ";
+	std::cin.getline(com, 256);
+	song.set(TITLE, com);
+
+	std::cout << "\tEnter a artist: ";
+	std::cin.getline(com, 256);
+	song.set(ARTIST, com);
+
+	bool quit = false;
+
+	while (!quit)
+	{
+		std::cout << "\tEnter a duration(mm:ss): ";
+		std::cin.getline(com, 256);
+		if (strlen(com) < 4)
+		{
+			std::cout << "\t\tCould not understand time" << std::endl;
+			continue;
+		}
+		if (!(com[strlen(com) - 3] && isdigit(com[strlen(com) - 2]) && isdigit(com[strlen(com) - 1])))
+		{
+			std::cout << "\t\tCould not read digits" << std::endl;
+			continue;
+		}
+
+		int seconds = 10 * (com[3] - '0') + (com[4] - '0');
+		if (seconds > 59)
+		{
+			std::cout << "\t\Invalid Seconds" << std::endl;
+			continue;
+		}
+
+		char sec[3];
+		char min[128];
+		int i = 0; 
+
+		for (i = 0; com[i] != ':'; i++)
+		{
+			min[i] = com[i];
+		}
+
+		min[i] = '\0';
+		sec[0] = com[strlen(com) - 2];
+		sec[1] = com[strlen(com) - 1];
+		sec[2] = '\0';
+
+		song.set(MINUTES, min);
+		song.set(SECONDS, sec);
+
+		quit = true;
+
+	}
+
+	std::cout << "\tEnter an album: ";
+	std::cin.getline(com, 256);
+	song.set(ALBUM, com);
+
+	slist.addEntry(song);
 }
 
 void SongTUI::sartist()

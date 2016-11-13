@@ -97,7 +97,7 @@ void SongList::print() const
 	{
 		
 		songs[idx].print();
-		std::cout << "Index: " << idx + 1 << std::endl << std::endl;
+		std::cout << "Index:   " << idx + 1 << std::endl << std::endl;
 	}
 }
 

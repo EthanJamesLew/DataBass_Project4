@@ -73,8 +73,8 @@ void Song::set(int id, const char name[])
 
 void Song::print()
 {
-	std::cout << "Title: " << title << std::endl;
-	std::cout << "Artist: " << artist << std::endl;
-	std::cout << minutes << ":" << seconds << std::endl;
-	std::cout << "Album: " << album << std::endl;
+	std::cout << "Title:   " << title << std::endl;
+	std::cout << "Artist:  " << artist << std::endl;
+	std::cout << "Duration "<< minutes << ":" << seconds << std::endl;
+	std::cout << "Album:   " << album << std::endl;
 }
