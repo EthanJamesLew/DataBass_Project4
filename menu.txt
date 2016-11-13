@@ -7,7 +7,7 @@
 Created by Ethan Lew
 Project 4, CS 162
 
-No not add arguments, you will be prompted for them
+Do not add arguments, you will be prompted for them
 
 Commands
 	"add"               add song prompt
