@@ -1,6 +1,6 @@
 ##Generic Makefile
 
-TARGET   = app
+TARGET   = Project4
 
 CC       = g++
 CFLAGS   = -std=c++11 -pedantic -Wall -I./include -I./src
